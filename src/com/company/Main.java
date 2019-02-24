@@ -54,4 +54,35 @@ public class Main {
 
     }
 
+    public static void addItem(){
+        System.out.print("Please enter the grocery item ");
+        groceryList.addGroceryItem(scanner.nextLine());
+    }
+
+    public static void modifyItem(){
+        System.out.print("Enter item number");
+        int itemNo = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("Enter replacement item ");
+        String newItem = scanner.nextLine();
+        //deduct 1 to access the correct element in array
+        groceryList.modifyGroceryItem(itemNo-1, newItem);
+    }
+
+    public static void removeItem(){
+        System.out.print("Enter item number");
+        int itemNo = scanner.nextInt();
+        scanner.nextLine();
+        groceryList.removeGroceryItem(itemNo);
+    }
+
+    public static void searchForItem(){
+        String searchItem = scanner.nextLine();
+        if(groceryList.findItem(searchItem) != null){
+            System.out.println("Found " + searchItem + " in our grocery list");
+        } else {
+            System.out.println(searchItem + " is not in the shopping list");
+        }
+    }
+
 }
