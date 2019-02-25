@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -36,6 +37,10 @@ public class Main {
                     searchForItem();
                     break;
                 case 6:
+                    processArrayList();
+                    break;
+
+                case 7:
                     quit = true;
                     break;
             }
@@ -80,8 +85,20 @@ public class Main {
         if(groceryList.onFile(searchItem)){
             System.out.println("Found " + searchItem + " in our grocery list");
         } else {
-            System.out.println(searchItem + " is not in the shopping list");
+            System.out.println(searchItem + " is not on file");
         }
+    }
+
+    //get contents to copy to a new array
+    public static void processArrayList(){
+        ArrayList<String> newArray = new ArrayList<String>();
+        newArray.addAll(groceryList.getGroceryList());
+
+        ArrayList<String> nextArray = new ArrayList<String>(groceryList.getGroceryList());
+
+    //convert to a regular array
+        String[] myArray = new String[groceryList.getGroceryList().size()];
+        myArray = groceryList.getGroceryList().toArray(myArray);
     }
 
 }

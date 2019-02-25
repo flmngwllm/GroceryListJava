@@ -10,6 +10,10 @@ public class GroceryList {
         groceryList.add(item);
     }
 
+    //getter to access list
+    public ArrayList<String> getGroceryList() {
+        return groceryList;
+    }
 
     //size will return the number of items in your list
     // .get will access an item in arrayList
