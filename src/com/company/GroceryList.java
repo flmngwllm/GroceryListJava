@@ -20,25 +20,36 @@ public class GroceryList {
         }
     }
 
+
+    public void modifyGroceryItem(String newItem){
+        int position = findItem(newItem);
+        if(position >=0){
+            modifyGroceryItem(position, newItem);
+        }
+    }
+
     //replace or update
-    public void modifyGroceryItem(int postion, String newItem){
+    private void modifyGroceryItem(int postion, String newItem){
         groceryList.set(postion,newItem);
         System.out.println("Grocery item " + (postion + 1) + " has been modified");
     }
 
+// overloaded method
+    public void removeGroceryItem(String item){
+        int position = findItem(item);
+        if(position >=0){
+            modifyGroceryItem(position, item);
+        }
+    }
+
     //remove item from list
-    public void removeGroceryItem(int position){
-        String theItem = groceryList.get(position);
+    private void removeGroceryItem(int position){
         groceryList.remove(position);
     }
 
     //finds a particular item in list
-    public String findItem(String searchItem){
-      // boolean exists = groceryList.contains(searchItem);
-       int position = groceryList.indexOf(searchItem);
-       if (position >= 0){
-           return groceryList.get(position);
-       }
-       return null;
+    public int findItem(String searchItem){
+return groceryList.indexOf(searchItem);
+
     }
 }
