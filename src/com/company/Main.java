@@ -60,20 +60,19 @@ public class Main {
     }
 
     public static void modifyItem(){
-        System.out.print("Enter item number");
-        int itemNo = scanner.nextInt();
-        scanner.nextLine();
-        System.out.println("Enter replacement item ");
+        System.out.print("Current item name");
+        String itemNo = scanner.nextLine();
+        System.out.println("Enter new item ");
         String newItem = scanner.nextLine();
         //deduct 1 to access the correct element in array
-        groceryList.modifyGroceryItem(itemNo-1, newItem);
+        groceryList.modifyGroceryItem(itemNo, newItem);
     }
 
     public static void removeItem(){
         System.out.print("Enter item number");
-        int itemNo = scanner.nextInt();
+        String itemNo = scanner.nextLine();
         scanner.nextLine();
-        groceryList.removeGroceryItem(itemNo - 1);
+        groceryList.removeGroceryItem(itemNo);
     }
 
     public static void searchForItem(){
